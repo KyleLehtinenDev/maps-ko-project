@@ -5,7 +5,7 @@
   "main": "js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nserver"
+    "start": "http-server"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/KyleLehtinenDev/sa-breweries#readme",
   "devDependencies": {
-    "simple-http-server": "^0.1.8"
+    "http-server": "^0.10.0"
   },
   "dependencies": {
     "@google/maps": "^0.4.5",
