@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/KyleLehtinenDev/sa-breweries/issues"
   },
-  "homepage": "https://github.com/KyleLehtinenDev/sa-breweries#readme"
+  "homepage": "https://github.com/KyleLehtinenDev/sa-breweries#readme",
+  "devDependencies": {
+    "knockout": "^3.4.2"
+  },
+  "dependencies": {
+    "@google/maps": "^0.4.5"
+  }
 }
