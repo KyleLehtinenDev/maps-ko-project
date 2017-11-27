@@ -1,0 +1,19 @@
+{
+  "name": "find-a-brew",
+  "version": "1.0.0",
+  "description": "Udacity project using KnockoutJS and GMAPs API to track the wide selection of breweries available in Scott's Addition",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleLehtinenDev/sa-breweries.git"
+  },
+  "author": "Kyle Lehtinen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KyleLehtinenDev/sa-breweries/issues"
+  },
+  "homepage": "https://github.com/KyleLehtinenDev/sa-breweries#readme"
+}
