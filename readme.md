@@ -1,0 +1,3 @@
+A Knockout JS project created for the Udacity Front-End Nanodegree.
+
+More to come...
