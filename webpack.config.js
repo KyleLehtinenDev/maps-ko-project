@@ -8,11 +8,13 @@ module.exports = {
     },
     module: {
         loaders: [
+            { 
+                test: /\.json$/,
+                loader: "json-loader" },
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: "babel-loader"
-            }
+                loader: "babel-loader" }
         ]
     },
     plugins: [
@@ -23,5 +25,10 @@ module.exports = {
     ],
     externals: {
         "ko": "ko"
+    },
+    node: {
+        fs: "empty",
+        net: "empty",
+        tls: "empty"   
     }
 };
