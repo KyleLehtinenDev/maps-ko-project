@@ -1,3 +1,4 @@
 # Root project ignores
 /node_modules
 /dist
+.env
