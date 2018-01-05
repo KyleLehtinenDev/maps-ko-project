@@ -1,7 +1,8 @@
 import * as gmaps from "google-maps";
 
+// Injected by webpack from .env file
 gmaps.KEY = GMAPS_API_KEY;
-gmaps.VERSION = '3.14';
+gmaps.VERSION = GMAPS_API_VERSION;
 
 gmaps.load((google) => {
   var elem = document.getElementById('map');
