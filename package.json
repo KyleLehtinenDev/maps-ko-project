@@ -21,6 +21,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "dotenv": "^4.0.0",
+    "express": "^4.16.2",
     "extract-loader": "^1.0.1",
     "file-loader": "^1.1.6",
     "html-loader": "^0.5.1",
@@ -40,7 +41,6 @@
   },
   "dependencies": {
     "@google/maps": "^0.4.5",
-    "express": "^4.16.2",
     "google-maps": "^3.2.1",
     "knockout": "^3.4.2",
     "request": "^2.83.0"

@@ -10,8 +10,20 @@
 </head>
 <body>
   <header>
-    <input type="text">
-    <button>Search</button>
+    <div>
+        <input type="text">    
+        <button>Search</button>
+        <div>
+          <span>Search for:&nbsp;</span>
+          <input type="radio" id="all_toggle" value="all" name="search_type">
+          <label for="all_toggle">All</label>
+          <input type="radio" id="brewery_toggle" value="brewery" name="search_type">
+          <label for="brewery_toggle">Breweries</label>
+          <input type="radio" id="beer_toggle" value="beer" name="search_type">
+          <label for="beer_toggle">Beer</label>
+        </div>
+    </div>
+    
   </header>
   <div id="map"></div>
 </body>

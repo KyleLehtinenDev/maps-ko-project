@@ -4,7 +4,7 @@ import * as gmaps from "google-maps";
 gmaps.KEY = GMAPS_API_KEY;
 gmaps.VERSION = GMAPS_API_VERSION;
 
-gmaps.load((google) => {
+var map = gmaps.load((google) => {
   var elem = document.getElementById('map');
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 40.7413549, lng: -73.9980244},
