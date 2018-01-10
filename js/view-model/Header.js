@@ -7,7 +7,9 @@ class Header {
   constructor() {
     this.searchInput = ko.observable();
     this.searchType = ko.observable("brewery");
+    // this.priorSearches = ko.observableArray();
   }
+
   search() {
     console.log(this.searchInput() + " " + this.searchType());
   }
