@@ -1,3 +1,5 @@
+"use strict"
+
 import * as gmaps from "google-maps";
 
 // Injected by webpack from .env file

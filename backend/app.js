@@ -1,13 +1,20 @@
-// Proxy requests for BreweryDB
-var KEYS = require("dotenv").config();
+"use strict"
 
+// Fetch environment vars and fail fast if missing
+var KEYS = require("dotenv").config();
 if (KEYS.error) { throw KEYS.error; }
 
-var express = require('express')
-var request = require("request");
-var app = express()
+// 
+const express = require('express'),
+      request = require("request"),
+      app = express(),
+      BASE_BREWERY_DB_URL = "http://api.brewerydb.com/v2/",
+      APIKEY = process.env.BREWERY_DB_API_KEY,
+      BREWERIES_EP = "breweries?key=",
+      BASE_REQUEST_OPTIONS = {
+        timeout: 1500
+      };
 
-const BREWERY_DB_URL = "http://api.brewerydb.com/v2/";
  
 app.use((request, response, next) => {
   response.header("Access-Control-Allow-Origin", "*");
@@ -21,19 +28,19 @@ app.get('/test', function (req, res) {
 })
 
 app.get("/brewery", function(req, res) {
-  console.log("Making request to: " + BREWERY_DB_URL + "breweries?key=" + process.env.BREWERY_DB_API_KEY);
   request.get(
-    BREWERY_DB_URL + "breweries?key=" + process.env.BREWERY_DB_API_KEY,
-    {
-      timeout: 1500
-    },
+    BASE_BREWERY_DB_URL + BREWERIES_EP + APIKEY,
+    BASE_REQUEST_OPTIONS,
     (error, response, body) => {
-      // console.dir(error);
-      // console.dir(response);
-      console.dir(body);
       res.send(body);
-    })
-  
+    });
 });
- 
+
+app.get("/beer", (req, res) => {
+
+});
+
+
+
+// Begin listening on localhost:3000
 app.listen(3000)

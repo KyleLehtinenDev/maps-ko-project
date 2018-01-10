@@ -1,11 +1,14 @@
+"use strict"
+
 import * as request from "request";
 
-// const URL = "http://api.brewerydb.com/v2/";
+const URL = "http://localhost:3000/";
 
 class BreweriesDbService {
   constructor() {}
   async getBrewery() {
-    return request.get("http://localhost:3000/brewery",
+    var EP_URL = URL + "brewery";
+    return request.get(EP_URL,
         (error, response, body) => {
         if (error) {
           console.dir(error);
@@ -15,6 +18,10 @@ class BreweriesDbService {
           console.dir(body);
         }
       });
+  }
+
+  async getBeer() {
+
   }
 }
 
