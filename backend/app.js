@@ -1,5 +1,8 @@
 "use strict"
 
+import {BreweryDB} from "BreweryDB.js";
+import {Brewery} from "../js/model/Brewery.js";
+
 // Fetch environment vars and fail fast if missing
 var KEYS = require("dotenv").config();
 if (KEYS.error) { throw KEYS.error; }
@@ -27,7 +30,8 @@ app.get('/test', function (req, res) {
   res.send('Hello World')
 })
 
-app.get("/brewery", function(req, res) {
+app.get("/search", function(req, res) {
+  console.dir
   request.get(
     BASE_BREWERY_DB_URL + BREWERIES_EP + APIKEY,
     BASE_REQUEST_OPTIONS,
