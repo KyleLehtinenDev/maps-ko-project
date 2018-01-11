@@ -1,14 +1,14 @@
 "use strict"
 
-import * as request from "request";
+import * as request from "request-promise-native";
 
 const URL = "http://localhost:3000/";
 
 class BreweriesDbService {
   constructor() {}
   async getBrewery() {
-    var EP_URL = URL + "brewery";
-    return request.get(EP_URL,
+    var endpoint = URL + "brewery?";
+    return request.get(endpoint,
         (error, response, body) => {
         if (error) {
           console.dir(error);
@@ -20,8 +20,27 @@ class BreweriesDbService {
       });
   }
 
-  async getBeer() {
-
+  async search(zip) {
+    var options = {
+      method: "GET",
+      json: true,
+      uri: URL + "locations?postalCode=" + zip
+    }
+    try {
+      const response = await request(options);
+      return response;
+    } catch(e) {
+      alert(e);
+    }
+    // request.get(endpoint, (error, response, body) => {
+    //   if (error) {
+    //     console.dir(error);
+    //     alert("error");
+    //   } else {
+    //     var parsed = JSON.parse(body);
+    //     return parsed;
+    //   }
+    // })
   }
 }
 

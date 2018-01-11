@@ -8,24 +8,28 @@
   <link rel="stylesheet" href="css/style.css">
   <base href="/">
 </head>
-<body>
-  <header id="header">
+<body id="app">
+  <header>
     <div>
         <input type="text" data-bind="value: searchInput">    
         <button data-bind="click: search">Search</button>
-        <span id="previous_search">
-        </span>
-        <div>
+        <!-- <span id="previous_search" data-bind="forEach: priorSearches">
+          <a href="#" data-bind=""></a>
+        </span> -->
+        <!-- <div>
           <span>Search for:&nbsp;</span>
-          <!-- <input type="radio" id="all_toggle" value="all" name="search_type">
-          <label for="all_toggle">All</label> -->
+          <input type="radio" id="all_toggle" value="all" name="search_type">
+          <label for="all_toggle">All</label>
           <input id="brewery_toggle" type="radio" value="brewery" 
                  name="search_type" data-bind="checked: searchType">
           <label for="brewery_toggle">Breweries</label>
           <input type="radio" id="beer_toggle" value="beer"
                  name="search_type" data-bind="checked: searchType">
           <label for="beer_toggle">Beer</label>
-        </div>
+        </div> -->
+    </div>
+    <div id="brewery_list" data-bind="foreach: breweries">
+      <div data-bind="text: brewery.name"></div>
     </div>
   </header>
   <div id="map"></div>

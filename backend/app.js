@@ -1,8 +1,5 @@
 "use strict"
 
-import {BreweryDB} from "BreweryDB.js";
-import {Brewery} from "../js/model/Brewery.js";
-
 // Fetch environment vars and fail fast if missing
 var KEYS = require("dotenv").config();
 if (KEYS.error) { throw KEYS.error; }
@@ -11,8 +8,8 @@ if (KEYS.error) { throw KEYS.error; }
 const express = require('express'),
       request = require("request"),
       app = express(),
-      BASE_BREWERY_DB_URL = "http://api.brewerydb.com/v2/",
-      APIKEY = process.env.BREWERY_DB_API_KEY,
+      BASE_BREWERY_DB_URL = "http://api.brewerydb.com/v2",
+      APIKEY = "&key=" + process.env.BREWERY_DB_API_KEY,
       BREWERIES_EP = "breweries?key=",
       BASE_REQUEST_OPTIONS = {
         timeout: 1500
@@ -31,7 +28,6 @@ app.get('/test', function (req, res) {
 })
 
 app.get("/search", function(req, res) {
-  console.dir
   request.get(
     BASE_BREWERY_DB_URL + BREWERIES_EP + APIKEY,
     BASE_REQUEST_OPTIONS,
@@ -40,11 +36,17 @@ app.get("/search", function(req, res) {
     });
 });
 
-app.get("/beer", (req, res) => {
-
+app.get("/locations", (req, res) => {
+  var endpoint = BASE_BREWERY_DB_URL + req.originalUrl + APIKEY
+  request.get(
+    endpoint,
+    BASE_REQUEST_OPTIONS,
+    (error, response, body) => {
+      var parsed = JSON.parse(body);
+      console.log("returning");
+      res.send(parsed.data);
+    });
 });
-
-
 
 // Begin listening on localhost:3000
 app.listen(3000)

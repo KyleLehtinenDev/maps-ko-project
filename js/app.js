@@ -3,12 +3,19 @@
 import * as ko from "knockout";
 
 import "./services/google-maps.js";
-import {BreweriesDbService} from "./services/breweries-db.js";
-import {Header} from "./view-model/header.js";
-
+import { BreweriesDbService } from "./services/breweries-db.js";
+// import { BreweryListViewModel } from "./view-model/BreweryListViewModel.js";
+// import { HeaderViewModel } from "./view-model/HeaderViewModel.js";
 
 var service = new BreweriesDbService();
-console.dir(service);
-// service.getBrewery();
 
-ko.applyBindings(new Header(), document.getElementById("header"));
+var ViewModel = function () {
+  this.breweries = ko.observableArray();
+  this.selectedBrewery = ko.observable();
+  this.searchInput = ko.observable();
+  this.search = async () => {
+    this.breweries(await service.search(this.searchInput()));
+  }
+} 
+
+ko.applyBindings(new ViewModel(), document.getElementById("app"));
