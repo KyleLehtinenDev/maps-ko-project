@@ -1,5 +1,5 @@
 import * as ko from "knockout";
-import {BreweriesDBService} from "../services/BreweriesDBService.js";
+import BreweriesDBService from "../services/BreweriesDBService.js";
 
 class HeaderViewModel {
 

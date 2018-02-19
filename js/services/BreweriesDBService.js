@@ -3,7 +3,8 @@
 import * as request from "request-promise-native";
 
 const URL = "http://localhost:3000/";
-const instance = null;
+
+let instance = null;
 
 class BreweriesDBService {
   constructor() {
@@ -50,4 +51,4 @@ class BreweriesDBService {
   }
 }
 
-export default BreweriesDbService;
+export default BreweriesDBService;
