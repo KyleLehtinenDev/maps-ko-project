@@ -3,10 +3,16 @@
 import * as request from "request-promise-native";
 
 const URL = "http://localhost:3000/";
+const instance = null;
 
-class BreweriesDbService {
-  constructor() {}
-  async getBrewery() {
+class BreweriesDBService {
+  constructor() {
+    if (!instance) {
+      instance = this;
+    }
+    return instance;
+  }
+  async getBrewery() {s
     var endpoint = URL + "brewery?";
     return request.get(endpoint,
         (error, response, body) => {
@@ -44,4 +50,4 @@ class BreweriesDbService {
   }
 }
 
-export {BreweriesDbService};
+export default BreweriesDbService;

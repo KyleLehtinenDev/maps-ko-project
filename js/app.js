@@ -2,12 +2,12 @@
 
 import * as ko from "knockout";
 
-import "./services/google-maps.js";
-import { BreweriesDbService } from "./services/breweries-db.js";
+import "./services/GoogleMapsService.js";
+import BreweriesDBService from "./services/BreweriesDBService.js";
 // import { BreweryListViewModel } from "./view-model/BreweryListViewModel.js";
 // import { HeaderViewModel } from "./view-model/HeaderViewModel.js";
 
-var service = new BreweriesDbService();
+var service = new BreweriesDBService();
 
 var ViewModel = function () {
   this.breweries = ko.observableArray();

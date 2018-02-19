@@ -1,7 +1,5 @@
-"use strict"
-
 import * as ko from "knockout";
-import {BreweryDbService} from "../services/breweries-db.js";
+import {BreweriesDBService} from "../services/BreweriesDBService.js";
 
 class HeaderViewModel {
 
