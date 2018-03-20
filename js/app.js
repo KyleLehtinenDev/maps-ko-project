@@ -4,8 +4,7 @@ import * as ko from "knockout";
 
 import "./services/GoogleMapsService.js";
 import BreweriesDBService from "./services/BreweriesDBService.js";
-// import { BreweryListViewModel } from "./view-model/BreweryListViewModel.js";
-// import { HeaderViewModel } from "./view-model/HeaderViewModel.js";
+import GooglePlacesService from "./services/GooglePlacesService";
 
 var service = new BreweriesDBService();
 
@@ -14,7 +13,7 @@ var ViewModel = function () {
   this.selectedBrewery = ko.observable();
   this.searchInput = ko.observable();
   this.search = async () => {
-    this.breweries(await service.search(this.searchInput()));
+    this.breweries(await GooglePlacesService.search(this.searchInput()));
   }
 } 
 

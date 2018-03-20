@@ -31,7 +31,8 @@ module.exports = (env) => {
             new webpack.DefinePlugin({
                 "GMAPS_API_KEY": JSON.stringify(process.env.GMAPS_API_KEY),
                 "GMAPS_API_VERSION": JSON.stringify(process.env.GMAPS_API_VERSION),
-                "BREWERY_DB_API_KEY": JSON.stringify(process.env.BREWERY_DB_API_KEY)
+                "BREWERY_DB_API_KEY": JSON.stringify(process.env.BREWERY_DB_API_KEY),
+                "GOOGLE_PLACES_KEY": JSON.stringify(process.env.GOOGLE_PLACES_KEY)
             })
         ],
         externals: {
@@ -41,6 +42,6 @@ module.exports = (env) => {
             fs: "empty",
             net: "empty",
             tls: "empty"
-        }
+        },
     }
 };

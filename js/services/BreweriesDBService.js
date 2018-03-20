@@ -1,8 +1,15 @@
-"use strict"
-
 import * as request from "request-promise-native";
 
 const URL = "http://localhost:3000/";
+
+
+// 
+const BASE_BREWERY_DB_URL = "http://api.brewerydb.com/v2/",
+      APIKEY = "&key=" + BREWERY_DB_API_KEY,
+      BREWERIES_EP = "breweries?key=",
+      BASE_REQUEST_OPTIONS = {
+        timeout: 1500
+      };
 
 let instance = null;
 
@@ -13,7 +20,7 @@ class BreweriesDBService {
     }
     return instance;
   }
-  async getBrewery() {s
+  async getBrewery() {
     var endpoint = URL + "brewery?";
     return request.get(endpoint,
         (error, response, body) => {
@@ -34,8 +41,14 @@ class BreweriesDBService {
       uri: URL + "locations?postalCode=" + zip
     }
     try {
-      const response = await request(options);
-      return response;
+      const response = request.get(
+        BASE_BREWERY_DB_URL + BREWERIES_EP + APIKEY,
+        BASE_REQUEST_OPTIONS,
+        (error, response, body) => {
+          return response;
+        });
+      // const response = await request(options);
+      
     } catch(e) {
       alert(e);
     }
